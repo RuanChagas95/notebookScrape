@@ -1,3 +1,5 @@
+import { db } from "../lib/db";
+import { DetailsValidator } from "../utils/detailsValidate";
 import { scraperDetails } from "./scraperDetails";
 import { scraperLinks } from "./scraperLinks";
 import { scraperMaxPage } from "./scraperMaxPage";
@@ -17,8 +19,24 @@ export default async function main() {
             page
         })
         if (!links) return;
-        const details = (links.map((link) => scraperDetails(link)))
-        
-        console.log(await Promise.all(details));
+        const details = await Promise.all((links.map((link) => scraperDetails(link))))
+        details.forEach(async (detail) => {
+            try {
+                const validated = new DetailsValidator(detail).get();
+                await db.laptop.create({
+                    data: {
+                        ...validated,
+                        options: JSON.stringify(validated.options),
+                        brand: 'lenovo',
+                    }     
+                })
+                
+
+            } catch (error) {
+                console.error("Validation error:", error);
+                return;
+            }
+            
+        })
     }
 }
