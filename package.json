@@ -1,11 +1,11 @@
 {
   "name": "webscraping",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node src/server.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,7 +19,9 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@types/express": "^5.0.1",
     "axios": "^1.8.4",
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "express": "^5.1.0"
   }
 }

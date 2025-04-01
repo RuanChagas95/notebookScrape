@@ -1,10 +1,10 @@
-import { scraperDetails } from "./webscraper/scraperDetails";
-import { scraperLinks } from "./webscraper/scraperLinks";
-import { scraperMaxPage } from "./webscraper/scraperMaxPage";
+import { scraperDetails } from "./scraperDetails";
+import { scraperLinks } from "./scraperLinks";
+import { scraperMaxPage } from "./scraperMaxPage";
 
 const baseUrl = 'https://webscraper.io/test-sites/e-commerce/static/computers/laptops'
 
-async function main() {
+export default async function main() {
     const maxPage = await scraperMaxPage(baseUrl)
 
     for(let page = 1; page <= maxPage; page++) {
@@ -22,8 +22,3 @@ async function main() {
         console.log(await Promise.all(details));
     }
 }
-
-
-main()
-
-
