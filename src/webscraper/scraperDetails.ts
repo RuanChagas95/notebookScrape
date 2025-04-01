@@ -9,7 +9,7 @@ export async function scraperDetails(link: string) {
     const laptops: Details[] = [];
 
     $('.product-wrapper.card-body').each((_, element) => {
-        const price = $(element).find('.price').text().trim();
+        const price = Number.parseFloat($(element).find('.price').text().trim().replace(/[^\d.]/g, ''));
         const title = $(element).find('.title').text().trim();
         const description = $(element).find('.description').text().trim();
         const image = 'https://webscraper.io' + $(element).find('.image').attr('src');

@@ -17,7 +17,7 @@ model Laptop {
   id        Int      @id @default(autoincrement())
   title      String
   brand     String
-  price     String
+  price     Float
   link     String
   description String
   image     String

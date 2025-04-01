@@ -1,5 +1,5 @@
 export type Details = {
-    price: string;
+    price: number;
     title: string;
     link: string;
     description: string;

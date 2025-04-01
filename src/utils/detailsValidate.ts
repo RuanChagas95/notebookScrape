@@ -2,7 +2,7 @@ import { Details } from "../types";
 
 export class DetailsValidator implements Details {
     public title: string;
-    public price: string;
+    public price: number;
     public description: string;
     public image: string;
     public rating: number;
@@ -34,7 +34,7 @@ export class DetailsValidator implements Details {
         if (typeof title !== "string" || typeof description !== "string") {
             throw new Error("Title and description must be strings");
         }
-        if (typeof price !== "string") {
+        if (typeof price !== "number") {
             throw new Error("Price must be a string");
         }
         if (typeof image !== "string") {
