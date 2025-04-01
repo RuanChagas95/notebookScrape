@@ -25,9 +25,11 @@ export async function scraperDetails(link: string) {
                 options[key] = values.toString();
             }
         });
-  
+
         laptops.push({ price, title, description, image, options, reviewCount, rating, link });
+  
       });
 
-      return laptops;
+
+      return laptops[0];
 }
