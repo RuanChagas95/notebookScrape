@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
       {
-          "name": "Debugger index.ts",
+          "name": "Debugger server.ts",
           "type": "node",
           "request": "launch",
-          "program": "${workspaceFolder}/src/index.ts",
+          "program": "${workspaceFolder}/src/server.ts",
           "runtimeArgs": [
               "-r",
               "ts-node/register"
