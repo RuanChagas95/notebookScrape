@@ -17,11 +17,13 @@ model Laptop {
   id        Int      @id @default(autoincrement())
   title      String
   brand     String
-  price     Float
+  price     Float 
   link     String
   description String
   image     String
   reviewCount Int
   rating    Int
   options String
+
+  @@index([price])
 }
