@@ -23,14 +23,20 @@ export default async function main() {
         details.forEach(async (detail) => {
             try {
                 const validated = new DetailsValidator(detail).get();
-                await db.laptop.create({
-                    data: {
+                await db.laptop.upsert({
+                    where: {
+                        link: validated.link
+                    },
+                    update: {
                         ...validated,
-                        options: JSON.stringify(validated.options),
                         brand: 'lenovo',
-                    }     
+                    },
+                    create: {
+                        ...validated,
+                        brand: 'lenovo',
+                    }
                 })
-                
+                db
 
             } catch (error) {
                 console.error("Validation error:", error);
