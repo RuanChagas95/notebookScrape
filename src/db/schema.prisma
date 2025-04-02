@@ -18,7 +18,7 @@ model Laptop {
   title      String
   brand     String
   price     Float 
-  link     String
+  link     String @unique
   description String
   image     String
   reviewCount Int
