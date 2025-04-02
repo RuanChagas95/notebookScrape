@@ -46,14 +46,14 @@ export class DetailsValidator implements Details {
 
     }
 
-    get(): Details {
+    get(): Omit<Details, 'options'> & { options: string} {
         return {
             title: this.title,
             price: this.price,
             description: this.description,
             image: this.image,
             rating: this.rating,
-            options: this.options,
+            options: JSON.stringify(this.options),
             reviewCount: this.reviewCount,
             link: this.link
         };
