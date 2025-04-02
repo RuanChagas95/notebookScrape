@@ -1,4 +1,3 @@
-// init express server
 import express from 'express';
 import routes from './routes';
 
